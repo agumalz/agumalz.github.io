@@ -1,0 +1,4 @@
+[submodule "agumalz.github.io"]
+	path = agumalz.github.io
+	url = https://github.com/agumalz/agumalz.github.io.git
+	branch = main
