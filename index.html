@@ -8,6 +8,10 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
     />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <style>
       * {
         margin: 0;
@@ -24,13 +28,13 @@
 
       /* Navigation */
       nav {
-        background: rgba(51, 51, 51, 0.9);
-        padding: 1rem;
+        background: linear-gradient(135deg, rgba(37, 117, 252, 0.95), rgba(106, 17, 203, 0.95));
+        padding: 1.2rem;
         position: fixed;
         width: 100%;
         top: 0;
         z-index: 1000;
-        backdrop-filter: blur(10px);
+        box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
       }
 
       nav ul {
@@ -47,11 +51,32 @@
         color: white;
         text-decoration: none;
         font-size: 1.1rem;
-        transition: color 0.3s ease;
+        font-weight: 500;
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+        transition: all 0.3s ease;
       }
 
       nav ul li a:hover {
-        color: #ff6f61;
+        background: rgba(255, 255, 255, 0.1);
+        color: #fff;
+      }
+
+      nav a {
+        color: white;
+        text-decoration: none;
+        font-weight: 500;
+        transition: all 0.3s ease;
+      }
+
+      nav a:hover {
+        color: rgba(255, 255, 255, 0.8);
+        transform: translateY(-2px);
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 2rem;
       }
 
       /* Header */
@@ -63,26 +88,33 @@
         flex-direction: column;
         text-align: center;
         padding: 2rem;
-        background: linear-gradient(135deg, #6a11cb, #2575fc);
+        background: linear-gradient(135deg, rgba(37, 117, 252, 0.95), rgba(106, 17, 203, 0.95)),
+          url("img/header-bg.jpg");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
         color: white;
         clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
       }
 
       header h1 {
-        font-size: 3rem;
+        font-size: 3.5rem;
+        font-weight: 700;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         animation: fadeInDown 1.5s ease;
       }
 
       header p {
-        font-size: 1.2rem;
+        font-size: 1.4rem;
         margin-top: 1rem;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
         animation: fadeInUp 1.5s ease;
       }
 
       /* Projects Section */
       .projects {
-        padding: 5rem 2rem;
-        background: white;
+        padding: 8rem 2rem;
+        background: #f8f9fa;
         clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
         margin-top: -5rem;
       }
@@ -97,15 +129,19 @@
       .project-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 2rem;
+        gap: 2.5rem;
         max-width: 1200px;
         margin: 0 auto;
       }
 
       .project-card {
         background: white;
-        border-radius: 8px;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        border-radius: 20px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        border: 1px solid rgba(0, 0, 0, 0.05);
+        height: 100%;
+        display: flex;
+        flex-direction: column;
         overflow: hidden;
         transition: transform 0.3s ease, box-shadow 0.3s ease;
         opacity: 0;
@@ -124,43 +160,71 @@
 
       .project-image {
         width: 100%;
-        height: 200px;
+        height: 280px;
         object-fit: cover;
+        transition: transform 0.3s ease;
+        border-radius: 20px 20px 0 0;
+      }
+
+      .project-card:hover .project-image {
+        transform: scale(1.05);
       }
 
       .project-info {
-        padding: 1.5rem;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 2rem;
       }
 
       .project-info h3 {
-        font-size: 1.5rem;
-        margin-bottom: 0.5rem;
+        font-size: 1.4rem;
+        color: #1a1a1a;
+        margin-bottom: 1.2rem;
+        line-height: 1.4;
       }
 
       .project-info p {
-        font-size: 1rem;
+        font-size: 1.1rem;
         color: #666;
+        line-height: 1.6;
+      }
+
+      .project-tech {
+        margin-top: 1rem;
+        padding-top: 1rem;
+        border-top: 1px solid #eee;
+        font-size: 0.9rem;
+        color: #2575fc;
       }
 
       /* About Me Section */
       #about {
-        padding: 5rem 2rem;
+        padding: 8rem 2rem;
         text-align: center;
-        background: linear-gradient(135deg, #2575fc, #6a11cb);
+        background: linear-gradient(135deg, rgba(37, 117, 252, 0.95), rgba(106, 17, 203, 0.95)),
+          url("img/about-bg.jpg");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
         color: white;
         clip-path: polygon(0 0, 100% 15%, 100% 100%, 0 100%);
         margin-top: -5rem;
       }
 
       #about h2 {
-        font-size: 2.5rem;
+        font-size: 2.2rem;
         margin-bottom: 2rem;
         animation: fadeIn 2s ease;
       }
 
       #about p {
-        font-size: 1.2rem;
-        margin-bottom: 2rem;
+        font-size: 1rem;
+        line-height: 1.8;
+        opacity: 0.9;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        margin-bottom: 3rem;
         max-width: 800px;
         margin-left: auto;
         margin-right: auto;
@@ -168,21 +232,22 @@
 
       #about .social-links a {
         color: white;
-        margin: 0 15px;
-        font-size: 2rem;
-        transition: color 0.3s ease;
+        margin: 0 20px;
+        font-size: 2.5rem;
+        transition: transform 0.3s ease, color 0.3s ease;
       }
 
       #about .social-links a:hover {
         color: #ff6f61;
+        transform: translateY(-5px);
       }
 
       /* Footer */
       footer {
-        background: #333;
+        background: #1a1a1a;
         color: white;
         text-align: center;
-        padding: 2rem;
+        padding: 3rem 2rem;
       }
 
       footer .social-links {
@@ -198,6 +263,11 @@
 
       footer .social-links a:hover {
         color: #ff6f61;
+      }
+
+      footer p {
+        opacity: 0.8;
+        font-size: 0.9rem;
       }
 
       /* Animations */
@@ -246,6 +316,65 @@
         nav ul li {
           margin: 10px 0;
         }
+
+        header h1 {
+          font-size: 2.5rem;
+        }
+
+        header p {
+          font-size: 1.2rem;
+        }
+
+        .projects {
+          padding: 6rem 1rem;
+        }
+
+        #about {
+          padding: 6rem 1rem;
+        }
+
+        .project-grid {
+          gap: 1.5rem;
+        }
+      }
+
+      /* Custom Scrollbar */
+      ::-webkit-scrollbar {
+        width: 10px;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: #2575fc;
+        border-radius: 5px;
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+        background: #6a11cb;
+      }
+
+      .section-title {
+        text-align: center;
+        font-size: 2.5rem;
+        margin-bottom: 3rem;
+        color: #333;
+        position: relative;
+        padding-bottom: 1rem;
+      }
+
+      .section-title::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100px;
+        height: 3px;
+        background: linear-gradient(to right, #2575fc, #6a11cb);
+        border-radius: 3px;
       }
     </style>
   </head>
@@ -265,27 +394,57 @@
     </header>
 
     <section class="projects" id="projects">
-      <h2>Projects</h2>
+      <h2 class="section-title"></h2>
+      <h2 class="section-title">Projects</h2>
       <div class="project-grid">
         <!-- Project 1 -->
         <div class="project-card">
-          <img src="img/data karyawankriteria.jpeg" alt="Project 1" class="project-image" />
+          <img
+            src="img/data karyawankriteria.jpeg"
+            alt="Project 1"
+            class="project-image"
+          />
           <div class="project-info">
-            <h3>Decision Support System Penilaian Kinerja Karyawan Toko Kopi Rasa Padang</h3>
-            <p>Sistem ini merupakan sistem yang dibuat untuk mampu membantu manager Departemen Human Resource dalam penilaian kinerja karyawan dengan menggunakan metode Simple Additive Weighting dan Fuzzy Logic Tsukamoto</p>
-            <br />
-            <p>Teknologi: HTML, CSS, Python, Django, Javascript, Bootstrap, MySQL, MATLAB</p>
+            <div>
+              <h3>
+                Decision Support System Penilaian Kinerja Karyawan Toko Kopi
+                Rasa Padang
+              </h3>
+              <p>
+                Sistem ini merupakan sistem yang dibuat untuk mampu membantu
+                manager Departemen Human Resource dalam penilaian kinerja
+                karyawan dengan menggunakan metode Simple Additive Weighting dan
+                Fuzzy Logic Tsukamoto
+              </p>
+            </div>
+            <div class="project-tech">
+              <p>
+                <strong>Teknologi:</strong> HTML, CSS, Python, Django,
+                Javascript, Bootstrap, MySQL, MATLAB
+              </p>
+            </div>
           </div>
         </div>
 
         <!-- Project 2 -->
         <div class="project-card">
-          <img src="img/ss ecommerce api.png" alt="Project 2" class="project-image" />
+          <img
+            src="img/ss ecommerce api.png"
+            alt="Project 2"
+            class="project-image"
+          />
           <div class="project-info">
-            <h3>E-Commerce API</h3>
-            <p>API ini merupakan backend untuk platform e-commerce yang menyediakan fitur manajemen produk, kategori, keranjang belanja, dan integrasi dengan RajaOngkir untuk pengecekan ongkos kirim.</p>
-            <br />
-            <p>Teknologi: Python, Django, MySQL</p>
+            <div>
+              <h3>E-Commerce API</h3>
+              <p>
+                API ini merupakan backend untuk platform e-commerce yang
+                menyediakan fitur manajemen produk, kategori, keranjang belanja,
+                dan integrasi dengan RajaOngkir untuk pengecekan ongkos kirim.
+              </p>
+            </div>
+            <div class="project-tech">
+              <p><strong>Teknologi:</strong> Python, Django, MySQL</p>
+            </div>
           </div>
         </div>
 
@@ -293,55 +452,97 @@
         <div class="project-card">
           <img src="img/ss flowise.png" alt="Project 3" class="project-image" />
           <div class="project-info">
-            <h3>Waiter AI</h3>
-            <p>Merupakan project untuk uji coba AI dalam pelayanan sebagai waiter dengan menggunakan Flowise AI dan ExpressJS sebagai Teknologi pengembangan</p>
-            <br />
-            <p>Teknologi: Javascript, NodeJS, ExpressJS, MySQL</p>
+            <div>
+              <h3>Waiter AI</h3>
+              <p>
+                Merupakan project untuk uji coba AI dalam pelayanan sebagai
+                waiter dengan menggunakan Flowise AI dan ExpressJS sebagai
+                Teknologi pengembangan
+              </p>
+            </div>
+            <div class="project-tech">
+              <p>
+                <strong>Teknologi:</strong> Javascript, NodeJS, ExpressJS, MySQL
+              </p>
+            </div>
           </div>
         </div>
 
         <!-- Project 4 -->
         <div class="project-card">
           <div class="project-info">
-            <h3>Blog</h3>
-            <p>Merupakan project pengembangan CRUD dengan penerapan Object Oriented Programming dengan menggunakan Fullstack Django Framework</p>
-            <br />
-            <p>Teknologi: Python, Django, MySQL</p>
+            <div>
+              <h3>Blog</h3>
+              <p>
+                Merupakan project pengembangan CRUD dengan penerapan Object
+                Oriented Programming dengan menggunakan Fullstack Django
+                Framework
+              </p>
+            </div>
+            <div class="project-tech">
+              <p><strong>Teknologi:</strong> Python, Django, MySQL</p>
+            </div>
           </div>
         </div>
-        
+
         <!-- Project 5 -->
         <div class="project-card">
-          <img src="img/ss verifikasi email.png" alt="Project 3" class="project-image" />
+          <img
+            src="img/ss verifikasi email.png"
+            alt="Project 3"
+            class="project-image"
+          />
           <div class="project-info">
-            <h3>Authentication and Email Verification</h3>
-            <p>Merupakan project autentikasi user seperti Sign In, Sign Up, dan pengiriman verifikasi Email kepada pengguna</p>
-            <br />
-            <p>Teknologi: Django, Python, MySQL</p>
+            <div>
+              <h3>Authentication and Email Verification</h3>
+              <p>
+                Merupakan project autentikasi user seperti Sign In, Sign Up, dan
+                pengiriman verifikasi Email kepada pengguna
+              </p>
+            </div>
+            <div class="project-tech">
+              <p><strong>Teknologi:</strong> Django, Python, MySQL</p>
+            </div>
           </div>
         </div>
 
         <!-- Project 6 -->
         <div class="project-card">
-          <!-- <img src="img/ss verifikasi email.png" alt="Project 3" class="project-image" /> -->
           <div class="project-info">
-            <h3>API Integration</h3>
-            <p>Merupakan project integrasi API yang dibuat dengan API eksternal seperti API berita, cuaca, dan gempa</p>
-            <br />
-            <p>Teknologi: Django, Python, MySQL</p>
+            <div>
+              <h3>API Integration</h3>
+              <p>
+                Merupakan project integrasi API yang dibuat dengan API eksternal
+                seperti API berita, cuaca, dan gempa
+              </p>
+            </div>
+            <div class="project-tech">
+              <p><strong>Teknologi:</strong> Django, Python, MySQL</p>
+            </div>
           </div>
         </div>
-
       </div>
     </section>
 
     <section id="about">
       <h2>Tentang Saya</h2>
-      <p>Saya Agum Al Zikhri, Seorang lulusan baru Teknik Informatika, yang bersemangat tentang teknologi dan dilengkapi dengan keterampilan pemecahan masalah yang kuat. Cepat belajar dan beradaptasi, saya unggul dalam menerapkan solusi inovatif, terutama dalam pengembangan backend, di mana saya memiliki pengalaman dalam merancang, membangun, dan mengoptimalkan sistem yang efisien. Dengan komitmen untuk terus belajar dan berinovasi, tujuan saya adalah menerapkan keahlian teknis dan passion saya dalam bidang AI dan pengembangan backend untuk menciptakan solusi nyata yang berdampak, serta berkontribusi pada lanskap teknologi yang dinamis dan terus berkembang.
+      <p>
+        Saya Agum Al Zikhri, Seorang lulusan baru Teknik Informatika, yang
+        bersemangat tentang teknologi dan dilengkapi dengan keterampilan
+        pemecahan masalah yang kuat. Cepat belajar dan beradaptasi, saya unggul
+        dalam menerapkan solusi inovatif, terutama dalam pengembangan backend,
+        di mana saya memiliki pengalaman dalam merancang, membangun, dan
+        mengoptimalkan sistem yang efisien. Dengan komitmen untuk terus belajar
+        dan berinovasi, tujuan saya adalah menerapkan keahlian teknis dan
+        passion saya dalam bidang AI dan pengembangan backend untuk menciptakan
+        solusi nyata yang berdampak, serta berkontribusi pada lanskap teknologi
+        yang dinamis dan terus berkembang.
       </p>
       <div class="social-links">
         <a href="https://github.com/agumalz"><i class="fab fa-github"></i></a>
-        <a href="https://www.linkedin.com/in/agum-al-zikhri/"><i class="fab fa-linkedin"></i></a>
+        <a href="https://www.linkedin.com/in/agum-al-zikhri/"
+          ><i class="fab fa-linkedin"></i
+        ></a>
         <a href="#"><i class="fab fa-instagram"></i></a>
       </div>
     </section>
